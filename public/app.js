@@ -10,11 +10,13 @@ angular.module('userProfiles', ['ui.router'])
 	})
 	.state('profile', {
 		url: '/profile',
-		'templateUrl': './views/profile.html',
+		templateUrl: './views/profile.html',
 		controller: 'profileCtrl',
 		resolve: {
 			userInfo: function( friendService ) {
-				/* FIX ME */
+				return friendService.getFriends().then(function(response) {
+					return response;
+				});
 			}
 		}
 	});

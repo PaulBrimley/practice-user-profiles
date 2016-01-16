@@ -1,12 +1,12 @@
 angular.module('userProfiles')
-.controller('mainCtrl', function( $scope, friendService, $location ) {
+.controller('mainCtrl', function( $scope, friendService, $state ) {
 
 	$scope.login = function( user ) {
 		friendService.login(user).then(function( response ) {
 			if (response.data.userFound) {
-				$location.path('/profile');
+				$state.go('profile');
 			} else {
-				alert('user not found');
+				alert('Password or user incorrect');
 			}
 		});
 	}

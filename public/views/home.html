@@ -4,13 +4,12 @@
   </div>
   
   <div class="login">
-    <input id="name" type="text" ng-model="user.userName" placeholder="User Name">
-    <br />
-    <input id="password" type="text" ng-model="user.password" placeholder="Password">
-    <br />
-    
-<!--   need a button instead?-->
-<!--    <a ui-sref="profile" ng-click="login(user.userName, user.password)">Login</a>-->
-    <button ng-click="login(user)">Login</button>
+    <form ng-submit="login(user)">
+      <input id="name" type="text" ng-model="user.name" placeholder="User Name" required>
+      <br />
+      <input id="password" type="text" ng-model="user.password" placeholder="Password" required>
+      <br />
+      <button>Login</button>
+    </form>    
   </div>
 </div>
